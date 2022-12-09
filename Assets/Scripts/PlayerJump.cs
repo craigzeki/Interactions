@@ -2,8 +2,10 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PlayerMovement : MonoBehaviour
+[RequireComponent(typeof(Rigidbody))]
+public class PlayerJump : MonoBehaviour
 {
+
     public enum JumpState
     {
         NOT_JUMPING = 0,
@@ -11,16 +13,18 @@ public class PlayerMovement : MonoBehaviour
         NUM_OF_JUMP_STATES
     }
 
-    [SerializeField] private float _jumpSpeed = 0.5f;
-    [SerializeField] private float _jumpHeight = 2.0f;
+    //[SerializeField] private float _jumpSpeed = 0.5f;
+    //[SerializeField] private float _jumpHeight = 2.0f;
+    [SerializeField] private Vector3 _jumpVector = new Vector3(0, 1, 1);
+    [SerializeField] private float _jumpMagnitude = 2f;
 
     private JumpState _jumpState = JumpState.NOT_JUMPING;
     private bool _isGrounded = false;
+    private Rigidbody _rigidbody;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Awake()
     {
-        
+        _rigidbody = GetComponent<Rigidbody>();
     }
 
     private void DoJumping()
@@ -31,17 +35,22 @@ public class PlayerMovement : MonoBehaviour
                 if ((DetectBlow.Instance.BlowDetected && _isGrounded) || (Input.GetKeyDown(KeyCode.Space)))
                 {
                     _jumpState = JumpState.JUMPING;
+                    _rigidbody.AddForce((_jumpVector * _jumpMagnitude), ForceMode.Impulse);
                     _isGrounded = false;
                 }
                 break;
             case JumpState.JUMPING:
-                transform.position += new Vector3(0, _jumpSpeed * Time.deltaTime, 0);
-                if (transform.position.y >= _jumpHeight)
+                //transform.position += new Vector3(0, _jumpSpeed * Time.deltaTime, 0);
+                //if (transform.position.y >= _jumpHeight)
+                //{
+                //    transform.position = new Vector3(transform.position.x, _jumpHeight, transform.position.z);
+                //    _jumpState = JumpState.NOT_JUMPING;
+                //}
+                   
+                if(_isGrounded)
                 {
-                    //transform.position = new Vector3(transform.position.x, _jumpHeight, transform.position.z);
                     _jumpState = JumpState.NOT_JUMPING;
                 }
-                    
                 break;
             case JumpState.NUM_OF_JUMP_STATES:
             default:

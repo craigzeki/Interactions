@@ -76,7 +76,7 @@ public class DetectBlow : MonoBehaviour
 
     private void OnGUI()
     {
-        GUI.skin.label.fontSize = Screen.width / 10;
+        GUI.skin.label.fontSize = Screen.width / 20;
         GUILayout.Label("RMS: " + rmsVal.ToString("F2"));
         GUILayout.Label(dbVal.ToString("F1") + " dB");
         GUILayout.Label(pitchVal.ToString("F0") + " Hz");
