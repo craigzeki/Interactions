@@ -22,7 +22,7 @@ public class DetectBlow : MonoBehaviour
 
     private bool blowDetected = false;
 
-    public bool BlowDetected { get => blowDetected; }
+    public bool BlowDetected { get => blowDetected; set => blowDetected = value; }
     public static DetectBlow Instance
     {
         get

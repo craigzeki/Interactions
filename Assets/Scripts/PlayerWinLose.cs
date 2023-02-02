@@ -16,6 +16,7 @@ public class PlayerWinLose : MonoBehaviour
     private void Awake()
     {
         _rigidbody= GetComponent<Rigidbody>();
+        _winCanvas.enabled = false;
     }
     // Update is called once per frame
     void Update()

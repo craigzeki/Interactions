@@ -50,6 +50,7 @@ public class PlayerJump : MonoBehaviour
                 if(_isGrounded)
                 {
                     _jumpState = JumpState.NOT_JUMPING;
+                    DetectBlow.Instance.BlowDetected = false;
                 }
                 break;
             case JumpState.NUM_OF_JUMP_STATES:
@@ -69,7 +70,7 @@ public class PlayerJump : MonoBehaviour
 
     private void OnCollisionStay(Collision collision)
     {
-        if ((collision.gameObject.tag == "Ground") && (_jumpState == JumpState.NOT_JUMPING))
+        if ((collision.gameObject.tag == "Ground"))
         {
             _isGrounded = true;
         }

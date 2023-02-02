@@ -190,7 +190,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
   m_ReferenceResolution: {x: 800, y: 600}
@@ -718,6 +718,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 3785590311534433524, guid: caf81e03b1af069448e7032ff85ed5ce, type: 3}
+      propertyPath: _camera
+      value: 
+      objectReference: {fileID: 5677489266527181533}
     - target: {fileID: 5677489266423769203, guid: caf81e03b1af069448e7032ff85ed5ce, type: 3}
       propertyPath: _jumpMagnitude
       value: 5
@@ -776,3 +780,8 @@ PrefabInstance:
       objectReference: {fileID: 963194228}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: caf81e03b1af069448e7032ff85ed5ce, type: 3}
+--- !u!4 &5677489266527181533 stripped
+Transform:
+  m_CorrespondingSourceObject: {fileID: 6925840521993793950, guid: caf81e03b1af069448e7032ff85ed5ce, type: 3}
+  m_PrefabInstance: {fileID: 5677489266527181532}
+  m_PrefabAsset: {fileID: 0}

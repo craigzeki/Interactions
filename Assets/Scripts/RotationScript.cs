@@ -12,7 +12,7 @@ public class RotationScript : MonoBehaviour
     private void Start()
     {
         Input.simulateMouseWithTouches = true;
-
+        Input.gyro.enabled = false;
         Input.gyro.enabled = true;
         Screen.orientation = ScreenOrientation.Portrait;
 
